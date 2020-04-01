@@ -1,7 +1,7 @@
 data "archive_file" "bundle" {
   type = "zip"
-  source_dir = "${path.root}/releases/${var.name}/proxies/${var.proxy_type}"
-  output_path = "${path.root}/proxies/${var.name}.zip"
+  source_dir = "${path.root}/../${var.name}/proxies/${var.proxy_type}"
+  output_path = "${path.root}/../${var.name}.zip"
 }
 
 resource "apigee_api_proxy" "proxy" {
