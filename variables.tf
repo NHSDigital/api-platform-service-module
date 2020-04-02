@@ -17,3 +17,8 @@ variable "proxy_type" {
   type = string
   description = "The type of proxy to deploy, given the proxy directories contained under proxies/"
 }
+
+variable "namespace" {
+  type = string
+  description = "String appended to the end of proxy and product names to allow namespaced deploys, for PRs and such"
+}
