@@ -19,6 +19,9 @@ resource "apigee_api_proxy_deployment" "proxy_deployment" {
   # and otherwise deploys seamlessly.
   override = true
   delay = 60
+
+  # Explicit dependency
+  depends_on = [apigee_api_proxy.proxy]
 }
 
 resource "apigee_product" "product" {
