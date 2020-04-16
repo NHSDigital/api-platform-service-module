@@ -26,7 +26,7 @@ resource "apigee_api_proxy_deployment" "proxy_deployment" {
 
 resource "apigee_product" "product" {
   count = var.make_api_product ? 0 : 1
-  name = "${var.name}-${var.apigee_environment}"
+  name = "${var.name}-${var.apigee_environment}${var.namespace}"
   display_name = "${var.api_product_display_name} (${var.env_names[var.apigee_environment]} environment)"
   description = var.api_product_description
   approval_type = length(regexall("prod|ref", var.apigee_environment)) > 0 ? "manual" : "auto"
