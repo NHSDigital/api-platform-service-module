@@ -41,6 +41,8 @@ resource "apigee_product" "product" {
 
   attributes = {
     access = "public"
+    ratelimit = "5ps"
   }
+
   environments = [var.apigee_environment]
 }
