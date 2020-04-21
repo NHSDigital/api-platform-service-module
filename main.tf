@@ -32,15 +32,12 @@ resource "apigee_product" "product" {
   approval_type = length(regexall("prod|ref", var.apigee_environment)) > 0 ? "manual" : "auto"
   proxies = [apigee_api_proxy.proxy.name, "identity-service-${var.apigee_environment}"]
 
-  # 5 transactions per second
-  # This doesn't do anything,
-  # it just sets the display text on the product
   quota = 300
   quota_interval = 1
   quota_time_unit = "minute"
 
   attributes = {
-    access = "public"
+    access = "public",
     ratelimit = "5ps"
   }
 
