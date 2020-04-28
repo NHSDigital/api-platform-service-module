@@ -26,7 +26,6 @@ resource "apigee_api_proxy_deployment" "proxy_deployment" {
 
 resource "apigee_product" "product" {
   count = var.make_api_product ? 1 : 0
-  id = "${var.name}-${var.apigee_environment}${var.namespace}"
   name = "${var.name}-${var.apigee_environment}${var.namespace}"
   display_name = "${var.api_product_display_name} (${var.env_names[var.apigee_environment]} environment)"
   description = var.api_product_description
