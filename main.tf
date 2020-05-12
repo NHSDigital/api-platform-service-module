@@ -37,7 +37,7 @@ resource "apigee_product" "product" {
   quota_time_unit = "minute"
 
   attributes = {
-    access = length(regexall("prod", var.apigee_environment)) > 0 ? "internal" : "public",
+    access = "public",
     ratelimit = "5ps"
   }
 
