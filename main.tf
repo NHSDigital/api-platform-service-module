@@ -13,7 +13,7 @@ resource "apigee_api_proxy" "proxy" {
 resource "apigee_api_proxy_deployment" "proxy_deployment" {
   proxy_name = apigee_api_proxy.proxy.name
   env = var.apigee_environment
-  revision = apigee_api_proxy.proxy.revision
+  revision = "latest"
 
   # This tells the deploy to give existing connections a 60 grace period before abandoning them,
   # and otherwise deploys seamlessly.
