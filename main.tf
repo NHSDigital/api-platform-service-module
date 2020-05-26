@@ -30,7 +30,7 @@ resource "apigee_product" "product" {
   display_name = "${var.api_product_display_name} (${var.env_names[var.apigee_environment]} environment)"
   description = var.api_product_description
   approval_type = length(regexall("prod|ref", var.apigee_environment)) > 0 ? "manual" : "auto"
-  proxies = [apigee_api_proxy.proxy.name, "identity-service-${var.apigee_environment}"]
+  proxies = var.apigee_environment == "int" ? [apigee_api_proxy.proxy.name, "identity-service-${var.apigee_environment}", "identity-service-${var.apigee_environment}-no-smartcard" ] : [apigee_api_proxy.proxy.name, "identity-service-${var.apigee_environment}"]
 
   quota = 300
   quota_interval = 1
